@@ -8,23 +8,59 @@
     <!-- Note there is no responsive meta tag here -->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico.html">
     <title>Shuaixiang (Shu) Zhang</title>
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="css/non-responsive.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-
+    <!-- ===== New style for Past Activities tabs ===== -->
     <style>
       body {
         transform: scale(1.4);
-        transform-origin: 0 0; /* This ensures the scaling starts from the top left */
-        width: calc(100% / 1.4); /* Adjust the width to account for the scaling */
+        transform-origin: 0 0;
+        width: calc(100% / 1.4);
+      }
+
+      /* ===== Year tabs (Past Activities) ===== */
+      .year-tabs {
+        margin-bottom: 22px;
+      }
+
+      .year-btn {
+        background-color: #f3f7ff;   /* very light blue */
+        color: #6c82bd;
+        border: 1px solid #e2ebff;
+        border-radius: 12px;         /* rounded corners */
+        padding: 7px 16px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        font-size: 17px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        outline: none;
+      }
+
+      .year-btn:hover {
+        background-color: #e7efff;
+        color: #4e6bb3;
+        border-color: #d2e0ff;
+      }
+
+      .year-btn.active-year {
+        background-color: #d8e4ff;   /* deeper blue when selected */
+        color: #3558a8;
+        border-color: #c5d6fb;
       }
     </style>
-	  
-	  
+
   </head>
+
+
+	
   <body>
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -124,14 +160,14 @@
       </div>
 
       <!-- Year buttons -->
-      <div style="margin-bottom:15px;">
-        <button onclick="showYear('2020')">2020</button>
-        <button onclick="showYear('2021')">2021</button>
-        <button onclick="showYear('2022')">2022</button>
-        <button onclick="showYear('2023')">2023</button>
-        <button onclick="showYear('2024')">2024</button>
-        <button onclick="showYear('2025')">2025</button>
-      </div>
+	  <div class="year-tabs">
+    	<button class="year-btn" id="btn-2020" onclick="showYear('2020')">2020</button>
+    	<button class="year-btn" id="btn-2021" onclick="showYear('2021')">2021</button>
+    	<button class="year-btn" id="btn-2022" onclick="showYear('2022')">2022</button>
+    	<button class="year-btn" id="btn-2023" onclick="showYear('2023')">2023</button>
+    	<button class="year-btn" id="btn-2024" onclick="showYear('2024')">2024</button>
+    	<button class="year-btn active-year" id="btn-2025" onclick="showYear('2025')">2025</button>
+	  </div>
 
       <!-- ================= 2020 ================= -->
       <div id="year-2020" style="display:none;">
@@ -217,13 +253,17 @@
 
     </div>
 
-    <script>
-      function showYear(year) {
-        const all = document.querySelectorAll('[id^="year-"]');
-        all.forEach(d => d.style.display = 'none');
-        document.getElementById('year-' + year).style.display = 'block';
-      }
-    </script>
+	<script>
+	function showYear(year) {
+    	const all = document.querySelectorAll('[id^="year-"]');
+    	all.forEach(d => d.style.display = 'none');
+    	document.getElementById('year-' + year).style.display = 'block';
+
+    	const allBtns = document.querySelectorAll('.year-btn');
+    	allBtns.forEach(btn => btn.classList.remove('active-year'));
+    	document.getElementById('btn-' + year).classList.add('active-year');
+	}
+	</script>
 
 
 
