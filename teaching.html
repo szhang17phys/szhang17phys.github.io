@@ -14,37 +14,66 @@
     <link href="css/non-responsive.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-      body {
-        transform: scale(1.4);
-        transform-origin: 0 0;
-        width: calc(100% / 1.4);
-      }
+	<style>
+    	body {
+        	transform: scale(1.4);
+        	transform-origin: 0 0;
+        	width: calc(100% / 1.4);
+    	}
 
-      .navbar-brand {
-        font-size: 28px !important;
-        font-weight: 600 !important;
-      }
+    	/* ===== Navbar brand（name）===== */
+    	.navbar-brand {
+        	font-size: 23px !important;
+        	font-weight: 400 !important;
+        	color: #555555 !important;
+    	}
 
-      .navbar-nav > li > a {
-        font-size: 22px !important;
-        font-weight: 600 !important;
-        color: #666666 !important;
-      }
+    	/* ===== Navbar menu ===== */
+    	.navbar-nav > li > a {
+        	font-size: 18px !important;
+        	font-weight: 400 !important;
+        	color: #777777 !important;
+        	position: relative;
+    	}
 
-      .navbar-nav > li > a:hover {
-        color: #222222 !important;
-      }
+    	/* hover */
+    	.navbar-nav > li > a:hover {
+        	color: #333333 !important;
+    	}
 
-      .navbar-nav > li.active > a,
-      .navbar-nav > li.active > a:hover,
-      .navbar-nav > li.active > a:focus {
-        color: #111111 !important;
-        font-weight: 700 !important;
-        background-color: transparent !important;
-        border-bottom: 2px solid #111111;
-      }
-    </style>
+    	/* ===== underline animation ===== */
+    	.navbar-nav > li > a::after {
+        	content: "";
+        	position: absolute;
+        	left: 50%;
+        	bottom: 0;
+        	width: 0;
+        	height: 1px;
+        	background-color: #666666;
+        	transition: all 0.25s ease;
+        	transform: translateX(-50%);
+    	}
+
+    	.navbar-nav > li > a:hover::after {
+        	width: 100%;
+    	}
+
+    	/* ===== current page ===== */
+    	.navbar-nav > li.active > a,
+    	.navbar-nav > li.active > a:hover,
+    	.navbar-nav > li.active > a:focus {
+        	color: #222222 !important;
+        	font-weight: 400 !important;
+        	background-color: transparent !important;
+    	}
+
+    	.navbar-nav > li.active > a::after {
+        	width: 100%;
+    	}
+	</style>
+
+
+    
   </head>
 
 
