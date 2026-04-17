@@ -14,44 +14,69 @@
     <link href="css/non-responsive.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-      body {
+<style>
+    body {
         transform: scale(1.4);
         transform-origin: 0 0;
         width: calc(100% / 1.4);
-      }
+    }
 
-      /* ===== Navbar ===== */
-      .navbar-brand {
-        font-size: 28px !important;
-        font-weight: 600 !important;
-      }
+    /* ===== Navbar brand（name）===== */
+    .navbar-brand {
+        font-size: 23px !important;
+        font-weight: 400 !important;
+        color: #555555 !important;
+    }
 
-      .navbar-nav > li > a {
-        font-size: 22px !important;
-        font-weight: 600 !important;
-        color: #666666 !important;
-      }
+    /* ===== Navbar menu ===== */
+    .navbar-nav > li > a {
+        font-size: 18px !important;
+        font-weight: 400 !important;
+        color: #777777 !important;
+        position: relative;
+    }
 
-      .navbar-nav > li > a:hover {
+    /* hover */
+    .navbar-nav > li > a:hover {
+        color: #333333 !important;
+    }
+
+    /* ===== underline animation ===== */
+    .navbar-nav > li > a::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background-color: #666666;
+        transition: all 0.25s ease;
+        transform: translateX(-50%);
+    }
+
+    .navbar-nav > li > a:hover::after {
+        width: 100%;
+    }
+
+    /* ===== current page ===== */
+    .navbar-nav > li.active > a,
+    .navbar-nav > li.active > a:hover,
+    .navbar-nav > li.active > a:focus {
         color: #222222 !important;
-      }
-
-      .navbar-nav > li.active > a,
-      .navbar-nav > li.active > a:hover,
-      .navbar-nav > li.active > a:focus {
-        color: #111111 !important;
-        font-weight: 700 !important;
+        font-weight: 400 !important;
         background-color: transparent !important;
-        border-bottom: 2px solid #111111;
-      }
+    }
 
-      /* ===== Year tabs ===== */
-      .year-tabs {
+    .navbar-nav > li.active > a::after {
+        width: 100%;
+    }
+
+    /* ===== Year tabs（ONLY in memories） ===== */
+    .year-tabs {
         margin-bottom: 22px;
-      }
+    }
 
-      .year-btn {
+    .year-btn {
         background-color: #f3f7ff;
         color: #6c82bd;
         border: 1px solid #e2ebff;
@@ -63,19 +88,21 @@
         font-weight: 400;
         cursor: pointer;
         transition: all 0.2s ease;
-      }
+        outline: none;
+    }
 
-      .year-btn:hover {
+    .year-btn:hover {
         background-color: #e7efff;
         color: #4e6bb3;
-      }
+        border-color: #d2e0ff;
+    }
 
-      .year-btn.active-year {
+    .year-btn.active-year {
         background-color: #d8e4ff;
         color: #3558a8;
         border-color: #c5d6fb;
-      }
-    </style>
+    }
+</style>
   </head>
 
 
